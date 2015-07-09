@@ -18,7 +18,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^blog/', include('blog.urls'), name="blog_urls"),
-    url(r'^blog/post', include(admin.site.urls)),
+    url(r'^blog/', include('blog.urls')),
     url(r'^users/', include('smartmin.users.urls'), name="user_urls"),
 ]

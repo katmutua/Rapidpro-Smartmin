@@ -1,15 +1,12 @@
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-SECRET_KEY = 'dk8ye!)$ecltu=xxy#m566rjel39xvf3-qdvpamfhv9^v^%%5n'
+SECRET_KEY = '00#(sqxtu73jtg5h3cb$t5esf^r=-3%)(2=)=q15yqt$z6vo6_'
 
 DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-TTEMPLATE_DIRS = (
-     os.path.join(BASE_DIR, 'templates/'),
-)
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
@@ -19,14 +16,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.humanize',
-    'polls',
-    'smartmin',
-    'guardian',
-    'smartminmodels',
-    'smartmin.users',
-    'templates',
-    'rest_framework',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -39,44 +28,34 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'djangotest.urls'
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
-WSGI_APPLICATION = 'djangotest.wsgi.application'
+ROOT_URLCONF = 'webparticipation.urls'
 
-PERMISSIONS = {
-  '*': ('create', 
-        'read',  
-        'update', 
-        'delete', 
-        'list'),  
-}
-
-GROUP_PERMISSIONS = {
-    "Administrator": ('auth.user.*',),
-}
-
-ANONYMOUS_USER_ID = -1
-
-SESSION_ENGINE = "django.contrib.sessions.backends.cached_db"
-
-SESSION_CACHE_ALIAS = "default"
-
-LOGIN_URL = "/users/login/"
-
-LOGOUT_URL = "/users/logout/"
-
-LOGIN_REDIRECT_URL = "/home/"
-
-LOGOUT_REDIRECT_URL = "/"
-
-USER_ALLOW_EMAIL_RECOVERY= True
-
-USER_FAILED_LOGIN_LIMIT = 3
+WSGI_APPLICATION = 'webparticipation.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'USER' : 'admin',
+        'PASSWORD': 'admin',
+        'NAME' : 'webparticipation',
+        'HOST' : '',
+        'PORT' : '',
     }
 }
 

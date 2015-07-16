@@ -1,7 +1,8 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from . import views
-from smartmin.views import SmartCreateView, SmartCRUDL, SmartCSVImportView, SmartDeleteView, SmartFormView
+from django.contrib.auth.models import User, AnonymousUser
+from django.conf import settings
 
 urlpatterns = patterns('',
 	  url(r'^$', views.index, name='index'),

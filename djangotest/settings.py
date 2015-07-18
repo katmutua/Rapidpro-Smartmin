@@ -13,7 +13,7 @@ ALLOWED_HOSTS = []
 
 ANONYMOUS_USER_ID = -1
 
-LOGIN_REDIRECT_URL = '/users/user/'
+LOGIN_REDIRECT_URL = '/smartminmodels/post/create/'
 
 INSTALLED_APPS = (
     'django.contrib.admin',

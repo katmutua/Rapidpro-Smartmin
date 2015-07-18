@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 
 def index(request):
-    response = "Logged out of application!"
+    response = "Spike"
     return HttpResponse(response)
 
 

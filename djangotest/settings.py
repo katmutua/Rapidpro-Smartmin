@@ -2,6 +2,7 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+print BASE_DIR
 SECRET_KEY = '00#(sqxtu73jtg5h3cb$t5esf^r=-3%)(2=)=q15yqt$z6vo6_'
 
 DEBUG = True
@@ -10,6 +11,10 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+ANONYMOUS_USER_ID = -1
+
+LOGIN_REDIRECT_URL = '/users/user/'
+
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -17,6 +22,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'smartmin',
+    'smartmin.users'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -45,16 +52,16 @@ TEMPLATES = [
     },
 ]
 
-ROOT_URLCONF = 'webparticipation.urls'
+ROOT_URLCONF = 'djangotest.urls'
 
-WSGI_APPLICATION = 'webparticipation.wsgi.application'
+WSGI_APPLICATION = 'djangotest.wsgi.application'
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'USER': 'admin',
         'PASSWORD': 'admin',
-        'NAME': 'webparticipation',
+        'NAME': 'test',
         'HOST': '',
         'PORT': '',
     }

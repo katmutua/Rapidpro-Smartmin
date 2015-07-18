@@ -3,15 +3,13 @@ from .models import *
 from django import forms
 from django.contrib.auth.models import User
 
+
 class ExcludeForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ('title', 'body', 'order', 'tags')
 
 
-# We overload a normal CategoryForm to not call the super's clean method. By default
-# model forms will check for integrity checks.  We want to force a DB thrown IntegrityError
-# so we don't call the super, instead letting smartmin wrap the error
 class CategoryForm(forms.ModelForm):
     def clean(self):
         return self.cleaned_data
@@ -20,18 +18,19 @@ class CategoryForm(forms.ModelForm):
         model = Category
         fields = ('name',)
 
-# just tests that our reverse and permissions are based on the view.py app, not
-# the model app, the template should also be /blog/user_list.html for the List view
+
 class UserCRUDL(SmartCRUDL):
     model = User
     permissions = False
     actions = ('list',)
+
 
 class CategoryCRUDL(SmartCRUDL):
     model = Category
 
     class Create(SmartCreateView):
         form_class = CategoryForm
+
 
 class PostCRUDL(SmartCRUDL):
     model = Post
@@ -78,8 +77,8 @@ class PostCRUDL(SmartCRUDL):
 
     class Messages(SmartListView):
         def pre_process(self, request, *args, **kwargs):
-            messages.error(request,"Error Messages")
-            messages.success(request,"Success Messages")
-            messages.info(request,"Info Messages")
-            messages.warning(request,"Warning Messages")
-            messages.debug(request,"Debug Messages")
+            messages.error(request, "Error Messages")
+            messages.success(request, "Success Messages")
+            messages.info(request, "Info Messages")
+            messages.warning(request, "Warning Messages")
+            messages.debug(request, "Debug Messages")

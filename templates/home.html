@@ -5,15 +5,16 @@
     <title>{% block title %}Login Success{% endblock %}</title>
 </head>
 <body>
-    <h1>Welcome to Ureport Portal</h1>
-    <div>
-    	 <a href="{% url 'index' %}" style="font-weight:bold;">Click To Answer Poll</a>
-    </div>
-		<div>
-			 <a href="{% url 'users.user_login' %}" style="font-weight:bold;">View Profile page</a>
-		</div>
-		<div>
-			 <a href="{% url 'users.user_logout' %}" style="font-weight:bold;">Logout</a>
-		</div>
-    {% block content %}{% endblock %}
+<h1>Welcome to Ureport Portal</h1>
+
+<div>
+    <a href="{% url 'index' %}" style="font-weight:bold;">Click To Answer Poll</a>
+</div>
+<div>
+    <a href="{% url 'users.user_login' %}" style="font-weight:bold;">View Profile page</a>
+</div>
+<div>
+    <a href="{% url 'users.user_logout' %}" style="font-weight:bold;">Logout</a>
+</div>
+{% block content %}{% endblock %}
 </body>

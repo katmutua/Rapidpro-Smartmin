@@ -1,4 +1,5 @@
 import os
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 SECRET_KEY = '00#(sqxtu73jtg5h3cb$t5esf^r=-3%)(2=)=q15yqt$z6vo6_'
@@ -51,11 +52,11 @@ WSGI_APPLICATION = 'webparticipation.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'USER' : 'admin',
+        'USER': 'admin',
         'PASSWORD': 'admin',
-        'NAME' : 'webparticipation',
-        'HOST' : '',
-        'PORT' : '',
+        'NAME': 'webparticipation',
+        'HOST': '',
+        'PORT': '',
     }
 }
 
